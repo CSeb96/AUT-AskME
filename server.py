@@ -4,10 +4,9 @@ import requests
 
 app = Flask(__name__)
 
-FB_API_URL = os.environ['FB_API_URL']
-VERIFY_TOKEN = os.environ['VERIFY_TOKEN'] # <paste your verify token here>
-PAGE_ACCESS_TOKEN = os.environ['PAGE_ACCESS_TOKEN'] # paste your page access token here>"
-
+FB_API_URL = 'https://graph.facebook.com/v2.6/me/messages'
+VERIFY_TOKEN = 'KEwRcfRvTsSlazfUXBuq'# <paste your verify token here>
+PAGE_ACCESS_TOKEN = 'EAADKrgXhyyUBADkszrehBp2cDr5cgQM09p57omJSOiT54MBrIzwFxLfDseatZAEkjb8NaVTspJVVCZBAqHI5ziXdOdXKpU9qGvCB1btlOXCVJGoQuJMZAOxXNPwH0EQ4g1wfqht4A920zOa0OQh09nPWJnB6iQQXB0eZCeXZBZCs1bFxmr7KZAc'# paste your page access token here>"
 
 def get_bot_response(message):
     """This is just a dummy function, returning a variation of what
