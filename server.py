@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 FB_API_URL = 'https://graph.facebook.com/v2.6/me/messages'
 VERIFY_TOKEN = 'KEwRcfRvTsSlazfUXBuq'# <paste your verify token here>
-PAGE_ACCESS_TOKEN = 'EAADKrgXhyyUBADkszrehBp2cDr5cgQM09p57omJSOiT54MBrIzwFxLfDseatZAEkjb8NaVTspJVVCZBAqHI5ziXdOdXKpU9qGvCB1btlOXCVJGoQuJMZAOxXNPwH0EQ4g1wfqht4A920zOa0OQh09nPWJnB6iQQXB0eZCeXZBZCs1bFxmr7KZAc'# paste your page access token here>"
+PAGE_ACCESS_TOKEN = 'EAADKrgXhyyUBADuE8jkWva9BHWn6m4oXJFARvvzrfcZBOgUaFvR7Atq1ZAaXfioi9uU0ZCkpKTCHaZCTqOYoWtPpR99iVZAGZBvkMa9cw2xkcKupkzvBkVW1Ox0fhnA15tm6dHuZAKiZBRZCZBkJAbC0bDbIZCwJ03zKD55uoxGGfC3AXZBCjzKmPPIf'# paste your page access token here>"
 
 def get_bot_response(message):
     """This is just a dummy function, returning a variation of what
