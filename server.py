@@ -31,7 +31,7 @@ def receive_message():
                     send_message(recipient_id, response_sent_text)
                 #if user sends us a GIF, photo,video, or any other non-text item
                 if message['message'].get('attachments'):
-                    response_sent_nontext = get_message()
+                    response_sent_nontext = is_msg(message)
                     send_message(recipient_id, response_sent_nontext)
     return "Message Processed"
 
@@ -43,6 +43,11 @@ def verify_fb_token(token_sent):
         return request.args.get("hub.challenge")
     return 'Invalid verification token'
 
+def is_msg(message):
+    greeting = ['hi', 'hello', 'heya', 'sup']
+
+    if(message in greeting):
+        return 'Hi There! How can I help you?'
 
 #chooses a random message to send to the user
 def get_message():
