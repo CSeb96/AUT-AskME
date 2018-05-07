@@ -27,7 +27,8 @@ def receive_message():
                 #Facebook Messenger ID for user so we know where to send response back to
                 recipient_id = message['sender']['id']
                 if message['message'].get('text'):
-                    response_sent_text = get_message()
+                    usermessge = message['message'].get('text')
+                    response_sent_text = get_message(usermessge)
                     send_message(recipient_id, response_sent_text)
                 #if user sends us a GIF, photo,video, or any other non-text item
                 if message['message'].get('attachments'):
@@ -49,9 +50,11 @@ def is_msg(message):
     if(message in greeting):
         return 'Hi There! How can I help you?'
 
+
+
 #chooses a random message to send to the user
 def get_message():
-    sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
+    sample_responses = ["You are good!", "We're so proud of you.", "Keep on being you boo!", "We're greatful to know you boo:)"]
     # return selected item to the user
     return random.choice(sample_responses)
 
