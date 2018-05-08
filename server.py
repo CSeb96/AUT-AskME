@@ -54,11 +54,11 @@ def verify_fb_token(token_sent):
 
 def is_msg(message):
     greeting = ['hi', 'hello', 'heya', 'sup']
-
+    req = ['links', 'get links']
     if(message in greeting):
         return 'Hi There! How can I help you?'
     
-    if(message = 'Get Links'):
+    if(message in req):
         get_all_links()
 
 def get_all_links():
