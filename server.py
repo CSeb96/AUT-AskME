@@ -2,11 +2,19 @@
 import random
 from flask import Flask, request
 from pymessenger.bot import Bot 
+from bs4 import BeautifulSoup
+import requests
+import os, os.path, csv
 
 app = Flask(__name__)
 ACCESS_TOKEN = 'EAADKrgXhyyUBAEp4kVuSkicUui79hVCDx6CjYCZA2z2tCC1vuPXNZA0nzVaSIkxeisxg2JWOKxabHA1QkMhSP4gFGYCff4WS4D9MCs8x8VgzN9J9pKZAIEoXMxOiNlgcLzJCawIVZCbmOZAwZCPnrRXgk5anZBCK3pFnxNanXItPxj50NZCDToyC'
 VERIFY_TOKEN = 'TESTINGTOKEN'
 bot = Bot(ACCESS_TOKEN)
+
+
+listingurl = "https://www.aut.ac.nz/study/study-options/engineering-computer-and-mathematical-sciences/courses/bachelor-of-computer-and-information-sciences/software-development-major"
+response = requests.get(listingurl)
+soup = BeautifulSoup(response.text, "html.parser")
 
 #We will receive messages that Facebook sends our bot at this endpoint 
 @app.route("/", methods=['GET', 'POST'])
@@ -28,12 +36,12 @@ def receive_message():
                 recipient_id = message['sender']['id']
                 if message['message'].get('text'):
                     usermessge = message['message'].get('text')
-                    response_sent_text = is_msg(usermessge)
+                    response_sent_text = is_msg(usermessge)         # Initialising variable with the function is_msg(message)
                     send_message(recipient_id, response_sent_text)
-                #if user sends us a GIF, photo,video, or any other non-text item
-                if message['message'].get('attachments'):
-                    response_sent_nontext = get_message()
-                    send_message(recipient_id, response_sent_nontext)
+                ##if user sends us a GIF, photo,video, or any other non-text item
+                #if message['message'].get('attachments'):
+                #    response_sent_nontext = get_message()
+                #    send_message(recipient_id, response_sent_nontext)
     return "Message Processed"
 
 
@@ -49,14 +57,15 @@ def is_msg(message):
 
     if(message in greeting):
         return 'Hi There! How can I help you?'
+    
+    if(message = 'Get Links'):
+        get_all_links()
 
+def get_all_links():
+        content = soup.find("div", {"id": "tab-98630-1"})
+        for link in content:
+            return soup_find_all('a')
 
-
-#chooses a random message to send to the user
-def get_message():
-    sample_responses = ["You are good!", "We're so proud of you.", "Keep on being you boo!", "We're greatful to know you boo:)"]
-    # return selected item to the user
-    return random.choice(sample_responses)
 
 #uses PyMessenger to send response to user
 def send_message(recipient_id, response):
