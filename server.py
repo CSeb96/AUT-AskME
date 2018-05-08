@@ -2,9 +2,9 @@
 import random
 from flask import Flask, request
 from pymessenger.bot import Bot 
-from bs4 import BeautifulSoup
-import requests
-import os, os.path, csv
+#from bs4 import BeautifulSoup
+#import requests
+#import os, os.path, csv
 
 app = Flask(__name__)
 ACCESS_TOKEN = 'EAADKrgXhyyUBAEp4kVuSkicUui79hVCDx6CjYCZA2z2tCC1vuPXNZA0nzVaSIkxeisxg2JWOKxabHA1QkMhSP4gFGYCff4WS4D9MCs8x8VgzN9J9pKZAIEoXMxOiNlgcLzJCawIVZCbmOZAwZCPnrRXgk5anZBCK3pFnxNanXItPxj50NZCDToyC'
