@@ -12,9 +12,9 @@ VERIFY_TOKEN = 'TESTINGTOKEN'
 bot = Bot(ACCESS_TOKEN)
 
 
-listingurl = "https://www.aut.ac.nz/study/study-options/engineering-computer-and-mathematical-sciences/courses/bachelor-of-computer-and-information-sciences/software-development-major"
-response = requests.get(listingurl)
-soup = BeautifulSoup(response.text, "html.parser")
+#listingurl = "https://www.aut.ac.nz/study/study-options/engineering-computer-and-mathematical-sciences/courses/bachelor-of-computer-and-information-sciences/software-development-major"
+#response = requests.get(listingurl)
+#soup = BeautifulSoup(response.text, "html.parser")
 
 #We will receive messages that Facebook sends our bot at this endpoint 
 @app.route("/", methods=['GET', 'POST'])
@@ -58,14 +58,14 @@ def is_msg(message):
     if(message in greeting):
         return 'Hi There! How can I help you?'
     
-    if(message in req):
-        #get_all_links()
-        return 'Function get all links is wrong'
+    #if(message in req):
+    #    #get_all_links()
+    #    return 'Function get all links is wrong'
 
-def get_all_links():
-        content = soup.find("div", {"id": "tab-98630-1"})
-        for link in content:
-            return soup_find_all('a')
+#def get_all_links():
+#        content = soup.find("div", {"id": "tab-98630-1"})
+#        for link in content:
+#            return soup_find_all('a')
 
 
 #uses PyMessenger to send response to user
