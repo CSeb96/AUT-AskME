@@ -59,7 +59,8 @@ def is_msg(message):
         return 'Hi There! How can I help you?'
     
     if(message in req):
-        get_all_links()
+        #get_all_links()
+        return 'Function get all links is wrong'
 
 def get_all_links():
         content = soup.find("div", {"id": "tab-98630-1"})
