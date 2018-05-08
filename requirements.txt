@@ -19,5 +19,5 @@ tornado==5.0b1
 update-checker==0.16
 urllib3==1.22
 Werkzeug==0.14.1
-gunicorn==19.7.1
+gunicorn==19.8.1
 pymessenger==0.0.7.0

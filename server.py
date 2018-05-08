@@ -48,7 +48,7 @@ def is_msg(message):
     greeting = ['hi', 'hello', 'heya', 'sup']
 
     if(message in greeting):
-        return 'Hi There! How can I help you?'
+        return 'Hi There, How can I help you?'
 
 
 
