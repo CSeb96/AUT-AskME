@@ -16,9 +16,7 @@ CLIENT_ACCESS_TOKEN = "0cd86c9764784512b3816545578780cd"
 ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
 
 
-link_url="https://www.aut.ac.nz/study/study-options/engineering-computer-and-mathematical-sciences/courses/bachelor-of-computer-and-information-sciences/software-development-major"
-response = requests.get(link_url)
-soup = BeautifulSoup(response.text, 'html.parser')
+
 
 
 app = Flask(__name__)
@@ -75,10 +73,15 @@ def reply(msg):
         #return response
 
 def spider():
+    link_url="https://www.aut.ac.nz/study/study-options/engineering-computer-and-mathematical-sciences/courses/bachelor-of-computer-and-information-sciences/software-development-major"
+    response = requests.get(link_url)
+    soup = BeautifulSoup(response.text, 'html.parser')
     relevant_data = soup.find('div', attrs={'id':'tab-98630-1'})
     list_links = relevant_data.find_all('a')
     for links in list_links:
-         return links, "\n"
+         listoflinks = links, "\n"
+
+    return listoflinks
 
 
 #chooses a random message to send to the user
