@@ -59,8 +59,8 @@ def verify_fb_token(token_sent):
 def reply(msg):
 
      
-        spider()
-     
+        #spider()
+        return 'Hello'
         #request = ai.text_request()
         #request.query = msg
 
