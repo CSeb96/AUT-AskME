@@ -59,8 +59,15 @@ def verify_fb_token(token_sent):
 def reply(msg):
 
         
-        spider()
-        return 'Finished the crawl'
+    link_url="https://www.aut.ac.nz/study/study-options/engineering-computer-and-mathematical-sciences/courses/bachelor-of-computer-and-information-sciences/software-development-major"
+    response = requests.get(link_url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    relevant_data = soup.find('div', attrs={'id':'tab-98630-1'})
+    list_links = relevant_data.find_all('a')
+    for links in list_links:
+         listoflinks = links
+
+    return listoflinks
         #request = ai.text_request()
         #request.query = msg
 
