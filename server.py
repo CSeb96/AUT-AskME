@@ -57,27 +57,14 @@ def verify_fb_token(token_sent):
     return 'Invalid verification token'
 
 def reply(msg):
+    
+    request = ai.text_request()
+    request.query = msg
+    byte_response = request.getresponse().read()
+    json_response = byte_response.decode('utf-8').replace("'", '"') # replaces all quotes with double quotes
+    response = json.loads(json_response)
 
-        
-    link_url="https://www.aut.ac.nz/study/study-options/engineering-computer-and-mathematical-sciences/courses/bachelor-of-computer-and-information-sciences/software-development-major"
-    response = requests.get(link_url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    relevant_data = soup.find('div', attrs={'id':'tab-98630-1'})
-    list_links = relevant_data.find_all('a')
-    for links in list_links:
-         listoflinks = links
-
-    return listoflinks.count
-        #request = ai.text_request()
-        #request.query = msg
-
-        #byte_response = request.getresponse().read()
-        #json_response = byte_response.decode('utf-8').replace("'", '"') # replaces all quotes with double quotes
-        #response = json.loads(json_response)
-
-   
-
-        #return response
+    return response
 
 def spider():
 
@@ -87,9 +74,9 @@ def spider():
     relevant_data = soup.find('div', attrs={'id':'tab-98630-1'})
     list_links = relevant_data.find_all('a')
     for links in list_links:
-         listoflinks = links, "\n"
+         listoflinks = links
 
-    return listoflinks
+    return 'Crawl Finished'
 
 
 #chooses a random message to send to the user
