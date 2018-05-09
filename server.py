@@ -60,19 +60,19 @@ def verify_fb_token(token_sent):
 
 def reply(msg):
 
-     if(msg == 'get links'):
+     
         spider()
-     else:
-        request = ai.text_request()
-        request.query = msg
+     
+        #request = ai.text_request()
+        #request.query = msg
 
-        byte_response = request.getresponse().read()
-        json_response = byte_response.decode('utf-8').replace("'", '"') # replaces all quotes with double quotes
-        response = json.loads(json_response)
+        #byte_response = request.getresponse().read()
+        #json_response = byte_response.decode('utf-8').replace("'", '"') # replaces all quotes with double quotes
+        #response = json.loads(json_response)
 
    
 
-        return response
+        #return response
 
 def spider():
     relevant_data = soup.find('div', attrs={'id':'tab-98630-1'})
