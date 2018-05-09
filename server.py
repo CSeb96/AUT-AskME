@@ -67,7 +67,7 @@ def reply(msg):
     for links in list_links:
          listoflinks = links
 
-    return 'Crawl Finished'
+    return listoflinks.count
         #request = ai.text_request()
         #request.query = msg
 
