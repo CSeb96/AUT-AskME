@@ -52,14 +52,16 @@ def verify_fb_token(token_sent):
     return 'Invalid verification token'
 
 def reply(msg):
-    #request = ai.text_request()
-    #request.query = msg
+    request = ai.text_request()
+    request.query = msg
 
-    #byte_response = request.getresponse().read()
-    #json_response = byte_response.decode('utf-8').replace("'", '"') # replaces all quotes with double quotes
-    #response = json.loads(json_response)
+    byte_response = request.getresponse().read()
+    json_response = byte_response.decode('utf-8').replace("'", '"') # replaces all quotes with double quotes
+    response = json.loads(json_response)
 
-    return 'Reply function not working'
+    return response
+
+    #return 'Reply function not working'
 
 #chooses a random message to send to the user
 def get_message():
