@@ -15,10 +15,6 @@ bot = Bot(ACCESS_TOKEN)
 CLIENT_ACCESS_TOKEN = "0cd86c9764784512b3816545578780cd"
 ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
 
-
-
-
-
 app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
@@ -74,9 +70,9 @@ def spider():
     soup = BeautifulSoup(response.text, 'html.parser')
     relevant_data = soup.find('div', attrs={'id':'tab-98630-1'})
     list_links = relevant_data.find_all('a')
-    for links in list_links:
-         listoflinks = links
-    response = 'Crawl Finished'
+    #for links in list_links:
+    #     listoflinks = links
+    response = len(list_links)
     return response
 
 
