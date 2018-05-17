@@ -41,7 +41,8 @@ def receive_message():
                     recipient_id = message['sender']['id']
                     if message['message'].get('text'):
                         usermessge = message['message'].get('text')
-                        response_sent_text = reply(usermessge)
+                        #response_sent_text = reply(usermessge)
+                        response_sent_text = spider()
                         send_message(recipient_id, response_sent_text)
                     #if user sends us a GIF, photo,video, or any other non-text item
                     if message['message'].get('attachments'):
@@ -75,8 +76,8 @@ def spider():
     list_links = relevant_data.find_all('a')
     for links in list_links:
          listoflinks = links
-
-    return 'Crawl Finished'
+    response = 'Crawl Finished'
+    return response
 
 
 #chooses a random message to send to the user
