@@ -72,7 +72,7 @@ def spider():
     list_links = relevant_data.find_all('a')
     #for links in list_links:
     #     listoflinks = links
-    response = len(list_links)
+    response = list_links
     return response
 
 
