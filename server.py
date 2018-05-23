@@ -2,7 +2,7 @@
 import random
 import requests
 from flask import Flask, request
-from pymessenger.bot import Bot 
+from pymessenger.bot import Bot
 import apiai, json
 from bs4 import BeautifulSoup
 
@@ -22,7 +22,7 @@ def receive_message():
     # our endpoint echos back the 'hub.challenge' value specified when we setup the webhook
     if request.method == 'GET':
         """Before allowing people to message your bot, Facebook has implemented a verify token
-        that confirms all requests that your bot receives came from Facebook.""" 
+        that confirms all requests that your bot receives came from Facebook."""
         token_sent = request.args.get("hub.verify_token")
         return verify_fb_token(token_sent)
     #if the request was not get, it must be POST and we can just proceed with sending a message back to user
@@ -48,13 +48,13 @@ def receive_message():
 
 def verify_fb_token(token_sent):
     #take token sent by facebook and verify it matches the verify token you sent
-    #if they match, allow the request, else return an error 
+    #if they match, allow the request, else return an error
     if token_sent == VERIFY_TOKEN:
         return request.args.get("hub.challenge")
     return 'Invalid verification token'
 
 def reply(msg):
-    
+
     request = ai.text_request()
     request.query = msg
     byte_response = request.getresponse().read()
@@ -78,7 +78,7 @@ def spider():
 
 #chooses a random message to send to the user
 def get_message():
-    sample_responses = ["You are good!", "We're so proud of you.", "Keep on being you boo!", "We're greatful to know you boo:)"]
+    sample_responses = ["You are good!", "We're so proud of you.", "Nice to meet you.","Keep on being you boo!", "We're greatful to know you boo:)"]
     # return selected item to the user
     return random.choice(sample_responses)
 
