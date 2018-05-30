@@ -78,7 +78,7 @@ def spider():
 
 #chooses a random message to send to the user
 def get_message():
-    sample_responses = ["You are good!", "We're so proud of you.", "Nice to meet you.","Keep on being you boo!", "We're greatful to know you boo:)"]
+    sample_responses = ["You are good!", "We're so proud of you.", "Nice to meet you.","Keep on being you!", "We're greatful to know you:)"]
     # return selected item to the user
     return random.choice(sample_responses)
 
