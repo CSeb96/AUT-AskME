@@ -18,7 +18,7 @@ prawcore==0.13.0
 pymessenger==0.0.7.0
 python-dateutil==2.6.1
 pyyaml==3.12
-requests==2.18.4
+requests==2.20.0
 requests-toolbelt==0.8.0
 shreddit==6.0.7
 six==1.11.0
